@@ -1,0 +1,192 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f2027;
+  color: white;
+}
+.cursor-text {
+  position: fixed;
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 9999;
+  transition: top 0.15s linear, left 0.15s linear;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.layout-container {
+  display: flex;
+}
+
+.product-page {
+  margin-left: 0;
+  flex-grow: 1;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: url('/public/images/belakang.jpg') no-repeat center center fixed;
+  background-size: cover;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.open ~ .product-page {
+  margin-left: 220px;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #1e1e2f;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar li:hover {
+  background-color: #f4511e;
+  color: black;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 200;
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-input {
+  padding: 10px 16px;
+  border-radius: 8px;
+  max-width: 250px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  display: block;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 2px solid #007bff;
+  color: #000;
+  width: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 16px;
+}
+
+.product-details h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-details p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: -5px;
+}
+
+.add-to-cart {
+  background-color: #f4511e;
+  color: white;
+  padding: 12px;
+  width: calc(100% - 32px);
+  border: none;
+  border-radius: 8px;
+  margin: 0 auto 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #ff6a2d;
+  color: #fff;
+}
